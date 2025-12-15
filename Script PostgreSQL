@@ -1,0 +1,40 @@
+CREATE DATABASE "BibliotecaJava";
+
+CREATE TABLE Cliente (
+    id_cliente SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    rut VARCHAR(9) NOT NULL UNIQUE,
+    telefono VARCHAR(100)
+);
+
+CREATE TABLE Libro (
+    id_libro SERIAL PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    nombre_autor VARCHAR(100),
+    editorial VARCHAR(100),
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE Prestamo (
+    id_prestamo SERIAL PRIMARY KEY,
+    id_libro INT NOT NULL,
+    id_cliente INT NOT NULL,
+    fecha_prestamo DATE DEFAULT CURRENT_DATE,
+    fecha_devolucion DATE,
+    
+    FOREIGN KEY (id_libro) REFERENCES Libro(id_libro),
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente)
+);
+
+INSERT INTO Cliente (nombre, rut, telefono) VALUES 
+('Joaquin Arriagada', '214370883', '+56987654321'),
+('Jonathan Chavez', '216978102', '+56912345678');
+
+INSERT INTO Libro (titulo, nombre_autor, editorial, disponible) VALUES 
+('El extranjero', 'Albert Camus','Penguin Random House', FALSE),
+('Cien Años de Soledad', 'Gabriel García Márquez','Literatura Random House', TRUE),
+('La Metamorfosis', 'Franz Kafka','Alianza Editorial', TRUE);
+
+INSERT INTO Prestamo (id_libro, id_cliente) VALUES (1, 1);
+
+UPDATE Libro SET disponible = FALSE WHERE id_libro = 1;
