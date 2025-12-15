@@ -35,13 +35,13 @@ public class Menu {
 
     public static void mostrarOpciones() {
         System.out.println("\n=============================");
-        System.out.println("      Gestión Biblioteca      ");
+        System.out.println("      Gestión Biblioteca Universitaria     ");
         System.out.println("============================= ");
         System.out.println("    [1] Crear/Añadir un Libro ");
         System.out.println("    [2] Mostrar Libros ");
-        System.out.println("    [3] Actualizar (Todos los campos) ");
+        System.out.println("    [3] Actualizar la informacion de un Libro ");
         System.out.println("    [4] Borrar un Libro ");
-        System.out.println("    [5] Realizar Préstamo (Transacción) ");
+        System.out.println("    [5] Realizar Préstamo de un Libro ");
         System.out.println("    [6] Salir ");
         System.out.println("============================= ");
     }
